@@ -14,7 +14,7 @@ import cucumber.api.java.en.When;
  */
 public class LoginSteps extends PageSteps {
 
-    @Given("The app is loaded correctly")
+   /* @Given("The app is loaded correctly")
     @Then("Login page is displayed")
     public void isLoginPageVisible() {
         LoginService.isViewLoaded();
@@ -28,6 +28,6 @@ public class LoginSteps extends PageSteps {
     @When("The user logs in the application with: (.*), (.*)")
     public void doLoginProcess(String email, String password) {
         LoginService.doLogin(email, password);
-    }
+    }*/
 
 }
