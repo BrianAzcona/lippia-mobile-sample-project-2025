@@ -2,30 +2,14 @@ package com.crowdar.examples.services;
 
 
 import com.crowdar.driver.DriverManager;
-import com.crowdar.examples.constants.CarritoConstants;
 import io.appium.java_client.MobileBy;
-
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.*;
-
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
-
+import org.openqa.selenium.WebElement;
 
 public class GenericService {
     public static WebElement scrollAndroid(String locatorType, String locatorValue) {
 
         String uiSelector = "";
 
-        // -----------------------------
-        // INTERPRETAR PREFIJOS LIPPIA
-        // -----------------------------
         if (locatorValue.startsWith("ID:")) {
             locatorType = "id";
             locatorValue = locatorValue.replace("ID:", "");
@@ -40,9 +24,6 @@ public class GenericService {
             locatorValue = locatorValue.replace("CLASS_NAME:", "");
         }
 
-        // -----------------------------
-        // MAPEAR A UiSelector
-        // -----------------------------
         switch (locatorType.toLowerCase()) {
             case "text":
                 uiSelector = String.format("new UiSelector().text(\"%s\")", locatorValue);
@@ -65,7 +46,6 @@ public class GenericService {
                 break;
 
             case "xpath":
-                // UiAutomator NO soporta xpath → indicamos el error
                 throw new IllegalArgumentException(
                         "UiScrollable no soporta XPath. Usá text(), textContains(), id() o accessibility()."
                 );
@@ -73,10 +53,6 @@ public class GenericService {
             default:
                 throw new IllegalArgumentException("Tipo de locator no soportado: " + locatorType);
         }
-
-        // -----------------------------
-        // ARMAR UI SCROLLABLE
-        // -----------------------------
         String uiScrollable =
                 "new UiScrollable(new UiSelector().scrollable(true))" +
                         ".scrollIntoView(" + uiSelector + ");";
@@ -84,16 +60,6 @@ public class GenericService {
         return DriverManager.getDriverInstance()
                 .findElement(MobileBy.AndroidUIAutomator(uiScrollable));
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

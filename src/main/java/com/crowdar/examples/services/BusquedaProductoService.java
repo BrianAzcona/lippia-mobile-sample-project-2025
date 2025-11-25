@@ -19,8 +19,8 @@ public class BusquedaProductoService extends MobileActionManager {
     }
 
     public static void verificarTituloProducto(String p_producto){
-        String xpath = String.format(BusquedaProductoConstants.TITLE_PRODUCT_XPATH, p_producto);
-        Assert.assertTrue("No se visualiza la pagina del producto", waitPresence(xpath).isDisplayed());
+        String tituloProducto = String.format(BusquedaProductoConstants.TITLE_PRODUCT_XPATH, p_producto);
+        Assert.assertTrue("No se visualiza la pagina del producto", waitPresence(tituloProducto).isDisplayed());
 
     }
 
