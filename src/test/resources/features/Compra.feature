@@ -6,7 +6,7 @@ Feature: Compra de Producto
     And el usuario se encuentra en la pagina de Products
   
   @AgregarEnvio
-  Scenario Outline: Rellenar datos de compra
+  Scenario Outline: Agregar direccion de envio
     And el usuario hace click en la imagen del producto Sauce Labs Backpack (violet)
     And el usuario visualiza la pagina del producto Sauce Labs Backpack (violet)
     And el usuario hace click en Add to cart
@@ -43,12 +43,16 @@ Feature: Compra de Producto
       | Full Name      | Address Line 1 | Address Line 2 | City  | State    | Zip Code | Country        |
       | Rebecca Winter | Mandorley 112  | Entrace 1      | Truro | Cornwall | 89750    | Unuted Kingdom |
   
-  @CompletarCompra
+  @CalificarCompra
   Scenario Outline: Finalizar compra
     And el usuario hace click en la imagen del producto Sauce Labs Backpack (violet)
     And el usuario visualiza la pagina del producto Sauce Labs Backpack (violet)
     And el usuario hace click en Add to cart
-    And el usuario visualiza en el carrito el numero 1
+    And el usuario regresa al inventario
+    And el usuario hace click en la imagen del producto Sauce Labs Backpack (yellow)
+    And el usuario visualiza la pagina del producto Sauce Labs Backpack (yellow)
+    And el usuario hace click en Add to cart
+    And el usuario visualiza en el carrito el numero 2
     And el usuario hace click en el carrito
     And el usuario visualiza My Cart al ingresar al carrito
     And el usuario hace click en Proceed To Checkout
@@ -58,12 +62,22 @@ Feature: Compra de Producto
     And el usuario completa los campos Full Name, Card Number, Expiration Date y Segurity Code
     And el usuario hace clic en Review Order
     And el usuario visualiza su orden
-    When el usuario hace click en Place Order
-    Then el usuario visualiza el mensaje Checkout Complete
+    And el usuario hace click en Place Order
+    And el usuario visualiza el mensaje Checkout Complete
+    And el usuario regresa al inventario
+    And el usuario hace click en la imagen del producto Sauce Labs Backpack (violet)
+    When el usuario califica con 5 estrellas al producto
+    And el usuario hace click en Continue
+    And el usuario regresa al inventario
+    And el usuario hace click en la imagen del producto Sauce Labs Backpack (yellow)
+    And el usuario califica con 2 estrellas al producto
+    Then se verifica de que se visualiza el mensaje <mensaje>
+    
+    
     
     Examples:
-      | Full Name      | Address Line 1 | Address Line 2 | City  | State    | Zip Code | Country        |
-      | Rebecca Winter | Mandorley 112  | Entrace 1      | Truro | Cornwall | 89750    | Unuted Kingdom |
+      | Full Name      | Address Line 1 | Address Line 2 | City  | State    | Zip Code | Country        | mensaje                               |
+      | Rebecca Winter | Mandorley 112  | Entrace 1      | Truro | Cornwall | 89750    | Unuted Kingdom | Thank you for submitting your review! |
   
   
     

@@ -20,6 +20,13 @@ public class CompraConstants {
     public static final String TITLE_REVIEW_ORDER_ID = "ID:com.saucelabs.mydemoapp.android:id/enterShippingAddressTV";
     public static final String BUTTON_PLACE_ORDER_ACCESSIBILITY_ID = "ACCESSIBILITY_ID:Completes the process of checkout";
     public static final String TITLE_CHECKOUT_COMPLETE_ID = "ID:com.saucelabs.mydemoapp.android:id/completeTV";
+    public static final String BUTTON_CONTINUE_DIALOG_ACCESSIBILITY_ID = "ACCESSIBILITY_ID:Closes review dialog";
+    public static final String MESSAGE_DIALOG_ID = "ID:com.saucelabs.mydemoapp.android:id/sortTV";
+    public static final String STAR_RATING_ID = "ID:com.saucelabs.mydemoapp.android:id/start%sIV";
+    public static final String BUTTON_BURGER_MENU_LOCATOR = "ACCESSIBILITY_ID:View menu";
+    public static final String BUTTON_CATALOG_XPATH = "xpath://androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[1]/android.widget.TextView[2]";
+
+
 
 
 

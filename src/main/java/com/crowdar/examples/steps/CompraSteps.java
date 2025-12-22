@@ -64,4 +64,19 @@ public class CompraSteps extends PageSteps {
     public void elUsuarioVisualizaElMensaje(String p_msj) {
         CompraService.verificarCompraCompletada(p_msj);
     }
+
+    @And("el usuario hace click en Continue")
+    public void elUsuarioHaceClickEnContinue() {
+        CompraService.clickContinuarCalificacion();
+    }
+
+    @Then("^se verifica de que se visualiza el mensaje (.*)$")
+    public void seVerificaDeQueSeVisualizaElMensaje(String p_mensaje) {
+        CompraService.verificarMensajeCalificacion(p_mensaje);
+    }
+
+    @When("^el usuario califica con (.*) estrellas al producto$")
+    public void elUsuarioCalificaConEstrellasAlProducto(String p_cantEstrellas) {
+        CompraService.calificarProducto(p_cantEstrellas);
+    }
 }

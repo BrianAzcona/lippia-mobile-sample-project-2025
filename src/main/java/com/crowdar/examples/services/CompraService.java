@@ -1,6 +1,7 @@
 package com.crowdar.examples.services;
 
 import com.crowdar.core.actions.MobileActionManager;
+import com.crowdar.examples.constants.BusquedaProductoConstants;
 import com.crowdar.examples.constants.CompraConstants;
 import io.cucumber.java.bs.A;
 import junit.framework.Assert;
@@ -71,6 +72,18 @@ public class CompraService extends MobileActionManager {
 
     public static void verificarCompraCompletada(String p_msj){
         Assert.assertEquals("No se completo la compra", p_msj, getElement(CompraConstants.TITLE_CHECKOUT_COMPLETE_ID).getText());
+    }
+    public static void clickContinuarCalificacion(){
+        click(CompraConstants.BUTTON_CONTINUE_DIALOG_ACCESSIBILITY_ID);
+    }
+    public static void verificarMensajeCalificacion(String p_msj){
+        Assert.assertEquals("El mensaje despues de la calificacion no es el esperado", p_msj, getElement(CompraConstants.MESSAGE_DIALOG_ID).getText());
+    }
+
+    public static void calificarProducto(String p_cantEstrellas){
+        String cantEstrellasLocator = String.format(CompraConstants.STAR_RATING_ID, p_cantEstrellas);
+        click(cantEstrellasLocator);
+
     }
 
 }

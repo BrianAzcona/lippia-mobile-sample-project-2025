@@ -43,7 +43,7 @@ public class CarritoSteps extends PageSteps {
 
     @And("el usuario regresa al inventario")
     public void elUsuarioRegresaAlInventario() {
-        CarritoService.regresionPag();
+        CarritoService.regresarCatalogo();
     }
 
 

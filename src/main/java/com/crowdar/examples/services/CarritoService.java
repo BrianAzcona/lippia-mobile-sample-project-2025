@@ -3,6 +3,7 @@ package com.crowdar.examples.services;
 import com.crowdar.core.actions.MobileActionManager;
 import com.crowdar.driver.DriverManager;
 import com.crowdar.examples.constants.CarritoConstants;
+import com.crowdar.examples.constants.CompraConstants;
 import io.cucumber.java.bs.A;
 import junit.framework.Assert;
 
@@ -39,8 +40,9 @@ public class CarritoService extends MobileActionManager {
         Assert.assertEquals("El carrito no esta vacio", p_msj, getElement(CarritoConstants.TITLE_CART_EMPTY_ID).getText());
     }
 
-    public static void regresionPag(){
-        DriverManager.getDriverInstance().navigate().back();
+    public static void regresarCatalogo(){
+        click(CompraConstants.BUTTON_BURGER_MENU_LOCATOR);
+        click(CompraConstants.BUTTON_CATALOG_XPATH);
     }
 
     public static void modificarCantItem(int p_cantItem,String p_operacion){
