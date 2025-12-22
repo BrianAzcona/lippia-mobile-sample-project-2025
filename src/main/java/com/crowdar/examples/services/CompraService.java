@@ -71,12 +71,14 @@ public class CompraService extends MobileActionManager {
     }
 
     public static void verificarCompraCompletada(String p_msj){
+        waitVisibility(CompraConstants.TITLE_CHECKOUT_COMPLETE_ID);
         Assert.assertEquals("No se completo la compra", p_msj, getElement(CompraConstants.TITLE_CHECKOUT_COMPLETE_ID).getText());
     }
     public static void clickContinuarCalificacion(){
         click(CompraConstants.BUTTON_CONTINUE_DIALOG_ACCESSIBILITY_ID);
     }
     public static void verificarMensajeCalificacion(String p_msj){
+        waitVisibility(CompraConstants.MESSAGE_DIALOG_ID);
         Assert.assertEquals("El mensaje despues de la calificacion no es el esperado", p_msj, getElement(CompraConstants.MESSAGE_DIALOG_ID).getText());
     }
 
