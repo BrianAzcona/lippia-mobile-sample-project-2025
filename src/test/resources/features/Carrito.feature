@@ -21,3 +21,27 @@
       And el usuario visualiza My Cart al ingresar al carrito
       And el usuario elimina el producto del carrito
       Then el usuario visualiza el carrito vacio con el mensaje No Items
+    
+    @AgregarProductos
+    Scenario: Agregar productos al carrito
+      And el usuario hace click en la imagen del producto Sauce Labs Backpack (violet)
+      When el usuario hace click en Add to cart
+      And el usuario regresa al inventario
+      And el usuario hace click en la imagen del producto Sauce Labs Backpack (yellow)
+      And el usuario hace click en Add to cart
+      Then el usuario visualiza en el carrito el numero 2
+      
+    @AumentarItemProducto
+    Scenario: Aumentar la cantidad de items de un producto en el carrito
+      And el usuario hace click en la imagen del producto Sauce Labs Backpack (violet)
+      And el usuario hace click en Add to cart
+      And el usuario hace click en el carrito
+      And el usuario visualiza My Cart al ingresar al carrito
+      When el usuario agrega 2 items del producto haciendo clic en +
+      Then se verifica de que se agregaron 2 items del producto
+      
+      
+      
+ 
+      
+      

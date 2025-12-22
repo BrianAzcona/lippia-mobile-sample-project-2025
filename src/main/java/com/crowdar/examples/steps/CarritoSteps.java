@@ -40,4 +40,20 @@ public class CarritoSteps extends PageSteps {
     public void elUsuarioEliminaElProductoDelCarrito() {
         CarritoService.eliminarProducto();
     }
+
+    @And("el usuario regresa al inventario")
+    public void elUsuarioRegresaAlInventario() {
+        CarritoService.regresionPag();
+    }
+
+
+    @When("^el usuario agrega (.*) items del producto haciendo clic en (.*)$")
+    public void elUsuarioAgregaItemsDelProductoHaciendoClicEn(int p_cantItem, String p_operacion) {
+        CarritoService.modificarCantItem(p_cantItem, p_operacion);
+    }
+
+    @Then("^se verifica de que se agregaron (.*) items del producto$")
+    public void seVerificaDeQueSeAgregaronItemsDelProducto(int p_cantProductosAgregados) {
+        CarritoService.verificarCantItem(p_cantProductosAgregados);
+    }
 }

@@ -2,6 +2,7 @@ package com.crowdar.examples.steps;
 
 import com.crowdar.core.PageSteps;
 
+import com.crowdar.core.PropertyManager;
 import com.crowdar.examples.services.CompraService;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -36,12 +37,12 @@ public class CompraSteps extends PageSteps {
         CompraService.verificarPagMetodoPago();
     }
 
-    @When("^el usuario completa los campos Full Name (.*), Card Number (.*), Expiration Date (.*) y Segurity Code (.*)$")
-    public void elUsuarioCompletaLosCamposFullNameFullNameCardNumberCardNumberExpirationDateExpirationDateYSegurityCodeSegurityCode(String p_nombre, String p_num_card, String p_fecha, String p_cod_seguridad) {
-        CompraService.completarCampoNombreTarjeta(p_nombre);
-        CompraService.completarCampoNumTarjeta(p_num_card);
-        CompraService.completarCampoFechaVencimiento(p_fecha);
-        CompraService.completarCampoCodSeguridad(p_cod_seguridad);
+    @When("^el usuario completa los campos Full Name, Card Number, Expiration Date y Segurity Code$")
+    public void elUsuarioCompletaLosCamposFullNameFullNameCardNumberCardNumberExpirationDateExpirationDateYSegurityCodeSegurityCode() {
+        CompraService.completarCampoNombreTarjeta(PropertyManager.getProperty("card.name"));
+        CompraService.completarCampoNumTarjeta(PropertyManager.getProperty("card.number"));
+        CompraService.completarCampoFechaVencimiento(PropertyManager.getProperty("card.expiration"));
+        CompraService.completarCampoCodSeguridad(PropertyManager.getProperty("card.security.code"));
     }
 
     @And("el usuario hace clic en Review Order")
