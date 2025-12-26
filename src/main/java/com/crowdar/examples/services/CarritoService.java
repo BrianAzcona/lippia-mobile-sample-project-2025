@@ -1,21 +1,16 @@
 package com.crowdar.examples.services;
 
 import com.crowdar.core.actions.MobileActionManager;
-import com.crowdar.driver.DriverManager;
 import com.crowdar.examples.constants.CarritoConstants;
 import com.crowdar.examples.constants.CompraConstants;
-import io.cucumber.java.bs.A;
 import junit.framework.Assert;
 
 public class CarritoService extends MobileActionManager {
 
     public static void agregarProducto(){
         GenericService.scrollAndroid("accessibility", CarritoConstants.BUTTON_ADD_TO_CART_ACCESSIBILITY_ID);
-
         waitPresence(CarritoConstants.BUTTON_ADD_TO_CART_ACCESSIBILITY_ID).isDisplayed();
         click(CarritoConstants.BUTTON_ADD_TO_CART_ACCESSIBILITY_ID);
-
-
 
     }
     public static void verificarCantCarrito(String p_cantidad){
