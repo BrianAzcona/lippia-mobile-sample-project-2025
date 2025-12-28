@@ -1,5 +1,5 @@
 @Carrito
-  Feature: Agregar y eliminar productos del carrito
+  Feature: Carrito
     Background:
       Given el usuario se loguea con el usuario bod@example y password 10203040 exitosamente
       And el usuario se encuentra en la pagina de Products

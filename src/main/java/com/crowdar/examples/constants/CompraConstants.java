@@ -26,9 +26,4 @@ public class CompraConstants {
     public static final String BUTTON_BURGER_MENU_LOCATOR = "ACCESSIBILITY_ID:View menu";
     public static final String BUTTON_CATALOG_XPATH = "xpath://androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[1]/android.widget.TextView[2]";
 
-
-
-
-
-
 }

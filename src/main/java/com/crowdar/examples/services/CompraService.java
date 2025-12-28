@@ -1,9 +1,7 @@
 package com.crowdar.examples.services;
 
 import com.crowdar.core.actions.MobileActionManager;
-import com.crowdar.examples.constants.BusquedaProductoConstants;
 import com.crowdar.examples.constants.CompraConstants;
-import io.cucumber.java.bs.A;
 import junit.framework.Assert;
 
 public class CompraService extends MobileActionManager {
